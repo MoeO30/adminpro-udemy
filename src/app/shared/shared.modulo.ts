@@ -6,7 +6,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 
 
 @NgModule({
-declarations:[
+declarations: [
 
      BreadcrumbsComponent,
      HeaderComponent,
@@ -14,7 +14,7 @@ declarations:[
      SidebarComponent,
 
 ],
-exports:[
+exports: [
     BreadcrumbsComponent,
     HeaderComponent,
     NopagefoundComponent,
@@ -24,4 +24,4 @@ exports:[
 
 })
 
-export class SharedModulo { } 
+export class SharedModulo { }

@@ -1,3 +1,6 @@
+/// con las rutas hijas los componentes que forman el avance de
+/// las paginas de de termina de la siguiente manera
+
 import { Routes, RouterModule } from '@angular/router';
 
 import { PagesComponent } from './pages.component';
@@ -18,4 +21,4 @@ const pagesRoutes: Routes = [
 
 ];
 
-export const PAGES_ROUTES = RouterModule.forChild( pagesRoutes );
+export const PAGES_ROUTES = RouterModule.forChild( pagesRoutes ); // se exporta como forChild
