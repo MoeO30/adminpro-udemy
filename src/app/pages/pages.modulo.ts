@@ -16,6 +16,7 @@ import { PagesComponent } from './pages.component';
 import { SharedModulo } from '../shared/shared.modulo';
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
 import { GraficodonaComponent } from '../components/graficodona/graficodona.component';
+import { AccoutSettingsComponent } from './accout-settings/accout-settings.component';
 
 
 
@@ -28,14 +29,16 @@ declarations: [  /// se declaran los compoentes
     Graficas1Component,
     PagesComponent,
     IncrementadorComponent,
-    GraficodonaComponent
+    GraficodonaComponent,
+    AccoutSettingsComponent
 ], exports: [
     DashboardComponent, /// se expotan los compoenentes para que puedan ser utilizados en otro lado
     ProgresComponent,
     Graficas1Component,
     PagesComponent,
     IncrementadorComponent,
-    GraficodonaComponent
+    GraficodonaComponent,
+    AccoutSettingsComponent
    ],
    imports: [
     FormsModule,

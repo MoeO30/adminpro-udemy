@@ -17,6 +17,9 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './login/register.component';
 
+/// MODULO DE SERVICIOS
+import { ServiceModule } from './services/service.module';
+
 
 
 
@@ -32,6 +35,7 @@ import { RegisterComponent } from './login/register.component';
     BrowserModule,
     PagesModule,
     APP_ROUTES,
+    ServiceModule, // // este modulo maneja todos los servicios
   ],
   providers: [],
   bootstrap: [AppComponent]
