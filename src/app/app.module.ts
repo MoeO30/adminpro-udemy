@@ -1,26 +1,27 @@
-/// En el moduluo pricipal solo van las importaciones de los componentes
-/// que el app.router.ts manejara en este caso solo el login y el registro
-///  de ser necesario para la aplicacion
-import { FormsModule } from '@angular/forms';
+// app.module.ts
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-/// RUTAS
-import { APP_ROUTES } from './app.router';
+// Rutas
+import { APP_ROUTES } from './app.routes';
 
-/// MODULOS
-import { PagesModule } from './pages/pages.modulo';
+// Modulos
+import { PagesModule } from './pages/pages.module';
 
-/// COMPONENTES
-import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './login/register.component';
+// temporal
+import { FormsModule } from '@angular/forms';
 
-/// MODULO DE SERVICIOS
+// Servicios
 import { ServiceModule } from './services/service.module';
 
 
+
+
+// Componentes
+import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './login/register.component';
 
 
 
@@ -28,14 +29,14 @@ import { ServiceModule } from './services/service.module';
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent,
+    RegisterComponent
   ],
   imports: [
-    FormsModule,
     BrowserModule,
-    PagesModule,
     APP_ROUTES,
-    ServiceModule, // // este modulo maneja todos los servicios
+    PagesModule,
+    FormsModule,
+    ServiceModule
   ],
   providers: [],
   bootstrap: [AppComponent]

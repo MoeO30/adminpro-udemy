@@ -1,64 +1,68 @@
-import { Component, OnInit, Output, Input, EventEmitter, ViewChild, ElementRef } from '@angular/core';
+import { Component, Input, Output, ViewChild, OnInit, EventEmitter, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-incrementador',
   templateUrl: './incrementador.component.html',
-  // styleUrls: ['./incrementador.component.css']
+  styles: []
 })
 export class IncrementadorComponent implements OnInit {
 
-  /// este decorador nos sirve para hacer referencia a los elementos html que existen duplicados
-  /// es decir que puedan tener el mismo nombre pero puedan ser afectados por separado la 
-  //// sintaxis ElementRef nos imprime o nos puede arrojar todos los atributos o propiedades del 
-  // elemento o objeto del html en este caso un input #txtIncrementador 
-  @ViewChild('txtIncrementador') txtPorcentaje: ElementRef;
+  @ViewChild('txtProgress') txtProgress: ElementRef;
 
   @Input('nombre') leyenda: string = 'Leyenda';
-  @Input() porcentaje: number = 50;
+  @Input() progreso: number = 50;
 
-  @Output('actualizar') cambioValor: EventEmitter<number> = new EventEmitter();
-
+  @Output('actualizaValor') cambioValor: EventEmitter<number> = new EventEmitter();
 
   constructor() {
-
+    // console.log('Leyenda', this.leyenda);
+    // console.log('progreso', this.progreso);
   }
 
   ngOnInit() {
+    // console.log('Leyenda', this.leyenda);
+    // console.log('progreso', this.progreso);
   }
-  onChange(newValue: number) {
 
-    // let elemHTML: any = document.getElementsByName('porcentaje')[0];
-     this.txtPorcentaje.nativeElement.value = this.porcentaje;
+  onChanges( newValue: number ) {
 
+    // let elemHTML: any = document.getElementsByName('progreso')[0];
 
-    if (newValue >= 100) {
-      this.porcentaje = 100;
-    } else if ( newValue <= 0) {
-       this.porcentaje = 0;
-    } else {
-      this.porcentaje = newValue;
+    // console.log( this.txtProgress );
+
+    if ( newValue >= 100 ) {
+      this.progreso = 100;
+    }else if ( newValue <= 0 ) {
+      this.progreso = 0;
+    }else {
+      this.progreso = newValue;
     }
 
-    // elemHTML.value = this.porcentaje;
-    this.txtPorcentaje.nativeElement.value = this.porcentaje;
+    // elemHTML.value = this.progreso;
+    this.txtProgress.nativeElement.value = this.progreso;
 
-    this.cambioValor.emit(this.porcentaje);
+    this.cambioValor.emit( this.progreso );
 
   }
 
-  cambiarValor(valor: number) {
+  cambiarValor( valor: number ) {
 
-    if ( this.porcentaje >= 100 && valor > 0 ) {
-      this.porcentaje = 100;
+    if ( this.progreso >= 100 && valor > 0 ) {
+      this.progreso = 100;
       return;
-       }
+    }
 
-    if ( this.porcentaje <= 0 && valor < 0 ) {
-      this.porcentaje = 0;
+    if ( this.progreso <= 0 && valor < 0 ) {
+      this.progreso = 0;
       return;
-       }
-        this.porcentaje = this.porcentaje + valor;
-        this.cambioValor.emit(this.porcentaje);
-        this.txtPorcentaje.nativeElement.focus();
-   }
+    }
+
+    this.progreso = this.progreso + valor;
+
+    this.cambioValor.emit( this.progreso );
+
+    this.txtProgress.nativeElement.focus();
+
+  }
+
 }
